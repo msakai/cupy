@@ -85,7 +85,7 @@ cdef class Descriptor:
         self.value = descriptor
         self.destroy = destroyer
 
-    def __del__(self):
+    def __dealloc__(self):
         if self.value:
             self.destroy(self.value)
             self.value = 0
